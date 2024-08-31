@@ -55,7 +55,7 @@ const Weather = () => {
         <WeatherContent title="風向風速予想">
           <Box overflow="hidden" height="450px">
             <iframe
-              src="http://weather-gpv.info/parts/bpm.php?model=msm&element=wa&latsc=1&w=300&h=450&area=kk&lx=270&ly=50"
+              src="https://weather-gpv.info/parts/bpm.php?model=msm&element=wa&latsc=1&w=300&h=450&area=kk&lx=270&ly=50"
               width={300}
               height="450px"
               
@@ -78,7 +78,7 @@ const Weather = () => {
             overflow="hidden"
           >
         <iframe
-              src="http://www.jma.go.jp/jp/warn/f_2520400.html"
+              src="https://www.jma.go.jp/jp/warn/f_2520400.html"
               width="700px"
               height="1200px"
               
@@ -100,7 +100,7 @@ const Weather = () => {
             overflow="hidden"
           >
             <iframe
-              src="http://www.jma.go.jp/jp/g3/"
+              src="https://www.jma.go.jp/jp/g3/"
               width="700px"
               height="1200px"
               
