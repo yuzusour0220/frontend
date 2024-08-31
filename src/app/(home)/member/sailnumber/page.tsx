@@ -22,7 +22,7 @@ const SailNumberDisplay: React.FC = () => {
 
         const filteredMembers = data.filter((member: Member) => member.grade !== 'OB' && member.sail_number);
         
-        const sortedMembers = filteredMembers.sort((a, b) => {
+        const sortedMembers = filteredMembers.sort((a:any, b: any) => {
           const [, aNum] = a.sail_number.split('-');
           const [, bNum] = b.sail_number.split('-');
           const aLastTwo = parseInt(aNum);
