@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Flex, Heading, Text, Image, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 
-const WeatherContent = ({ title, children }) => (
+const WeatherContent = ({ title, children }: any) => (
   <Box
     width="370px"
     height="500px"
