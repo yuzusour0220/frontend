@@ -26,12 +26,12 @@ const CaptainCard: React.FC<Captain> = ({ name, message, photo, status }) => (
     </AspectRatio>
     <Box p={6}>
       <VStack spacing={4} align="start">
-        <Heading as="h3" size="lg" color="#0077be" fontFamily="'Montserrat', sans-serif">
-          {name}
-        </Heading>
         <Text fontWeight="bold" color="blue.500" fontSize="lg" fontFamily="'Roboto', sans-serif">
           {status}
         </Text>
+        <Heading as="h3" size="lg" color="#0077be" fontFamily="'Montserrat', sans-serif">
+          {name}
+        </Heading>
         <Text fontFamily="'Roboto', sans-serif" fontSize="md" lineHeight="tall">
           {message}
         </Text>
@@ -50,6 +50,15 @@ async function getCaptains() {
 
 export default async function CaptainsGreeting() {
   const captains: Captain[] = await getCaptains();
+
+  // Sort captains by status: 主将 first, then 前主将
+  const sortedCaptains = captains.sort((a, b) => {
+    if (a.status === '主将') return -1;
+    if (b.status === '主将') return 1;
+    if (a.status === '前主将') return -1;
+    if (b.status === '前主将') return 1;
+    return 0;
+  });
 
   return (
     <Box bg="gray.50" minH="100vh" py={12}>
@@ -71,7 +80,7 @@ export default async function CaptainsGreeting() {
             </Heading>
           </Box>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-            {captains.map((captain) => (
+            {sortedCaptains.map((captain) => (
               <CaptainCard key={captain.id} {...captain} />
             ))}
           </SimpleGrid>
