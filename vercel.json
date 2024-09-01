@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/proxy-weather/:path*",
+        "destination": "http://weather-gpv.info/:path*"
+      }
+    ]
+  }
