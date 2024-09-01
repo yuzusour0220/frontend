@@ -1,5 +1,7 @@
-import React from 'react';
-import { Box, Flex, Heading, Text, Image } from '@chakra-ui/react';
+"use client"; 
+import React, { useState } from 'react';
+import { Box, Flex, Heading, Text, Image, Spinner, Button } from '@chakra-ui/react';
+
 
 const WeatherContent = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <Box
@@ -26,6 +28,55 @@ const WeatherContent = ({ title, children }: { title: string; children: React.Re
     </Flex>
   </Box>
 );
+const WindSpeedForecast = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  const handleError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  const handleRetry = () => {
+    setIsLoading(true);
+    setHasError(false);
+    // iframeをリロード
+    const iframe = document.querySelector('iframe');
+    if (iframe) {
+      iframe.src = iframe.src;
+    }
+  };
+
+  return (
+    <Box position="relative" width="100%" height="100%">
+      {isLoading && (
+        <Flex position="absolute" top="0" left="0" right="0" bottom="0" bg="rgba(255,255,255,0.8)" zIndex="1" justify="center" align="center" direction="column">
+          <Spinner size="xl" color="blue.500" />
+          <Text mt={4}>風速データを読み込み中...</Text>
+        </Flex>
+      )}
+      {hasError && (
+        <Flex position="absolute" top="0" left="0" right="0" bottom="0" bg="rgba(255,255,255,0.8)" zIndex="1" justify="center" align="center" direction="column">
+          <Text mb={4}>データの読み込みに失敗しました。</Text>
+          <Button onClick={handleRetry} colorScheme="blue">再試行</Button>
+        </Flex>
+      )}
+      <iframe
+        src="http://weather-gpv.info/parts/bpm.php?model=msm&element=wa&latsc=1&w=300&h=450&area=kk&lx=270&ly=50"
+        width="100%"
+        height="100%"
+        onLoad={handleLoad}
+        onError={handleError}
+        style={{ border: 'none' }}
+      />
+    </Box>
+  );
+};
 
 const Weather = () => {
   return (
@@ -53,7 +104,7 @@ const Weather = () => {
         pt="15px"
       >
         <WeatherContent title="風向風速予想">
-          <Box overflow="hidden" height="450px">
+          {/* <Box overflow="hidden" height="450px">
             <iframe
               src="http://weather-gpv.info/parts/bpm.php?model=msm&element=wa&latsc=1&w=300&h=450&area=kk&lx=270&ly=50"
               width={300}
@@ -61,13 +112,14 @@ const Weather = () => {
               
               
             />
-          </Box>
-          <Image
+          </Box> */}
+          {/* <Image
             src="/photos/wind-speed.png"
             alt="Wind Speed"
             height="450px"
             width="50px"
-          />
+          /> */}
+          <WindSpeedForecast />
         </WeatherContent>
         
         <WeatherContent title="警報・注意報">
