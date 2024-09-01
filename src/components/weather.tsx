@@ -28,30 +28,7 @@ const WeatherContent = ({ title, children }: { title: string; children: React.Re
     </Flex>
   </Box>
 );
-const WindSpeedForecast = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
 
-  const handleLoad = () => {
-    setIsLoading(false);
-    setHasError(false);
-  };
-
-  const handleError = () => {
-    setIsLoading(false);
-    setHasError(true);
-  };
-
-  const handleRetry = () => {
-    setIsLoading(true);
-    setHasError(false);
-    // iframeをリロード
-    const iframe = document.querySelector('iframe');
-    if (iframe) {
-      iframe.src = iframe.src;
-    }
-  };
-}
 
 const Weather = () => {
   return (
