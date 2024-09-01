@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Image, ImageProps } from '@chakra-ui/react';
 
@@ -34,5 +36,3 @@ const ServerSideImage: React.FC<ServerSideImageProps> = ({ src, alt, width, heig
 };
 
 export default ServerSideImage;
-
-// pages/api/fetch-image.ts
