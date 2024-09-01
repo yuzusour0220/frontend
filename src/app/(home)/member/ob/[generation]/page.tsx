@@ -101,7 +101,7 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
                 </Text>
               </CardHeader>
               <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4}>
-                <AspectRatio ratio={16 / 9} width="100%" marginBottom={4}>
+                <AspectRatio ratio={4 / 3} width="100%" marginBottom={4}>
                   <Image
                     src={member.photo}
                     alt={`${member.name}の写真`}
