@@ -97,9 +97,6 @@ const Weather = () => {
         </WeatherContent>
         <WeatherContent title="風向風速予想">
           <Flex direction="column" align="center" justify="center" height="100%">
-            <Text fontSize="18px" mb={4}>
-              詳細な風向風速予想を確認するには下のボタンをクリックしてください。
-            </Text>
             <Link href="http://weather-gpv.info/" passHref>
               <Button
                 as="a"
