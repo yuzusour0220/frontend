@@ -1,9 +1,8 @@
 import React from 'react';
-import { Box, Flex, Heading, Text, Image } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Image, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 
-
-const WeatherContent = ({ title, children }: { title: string; children: React.ReactNode }) => (
+const WeatherContent = ({ title, children }) => (
   <Box
     width="370px"
     height="500px"
@@ -23,12 +22,11 @@ const WeatherContent = ({ title, children }: { title: string; children: React.Re
     >
       {title}
     </Text>
-    <Flex direction="row" justify="center" wrap="wrap" p={2}>
+    <Flex direction="column" justify="center" align="center" p={2} height="calc(100% - 60px)">
       {children}
     </Flex>
   </Box>
 );
-
 
 const Weather = () => {
   return (
@@ -55,20 +53,17 @@ const Weather = () => {
         p="5%"
         pt="15px"
       >
-        
-        
         <WeatherContent title="警報・注意報">
-        <Box
+          <Box
             position="relative"
             width="350px"
             height="450px"
             overflow="hidden"
           >
-        <iframe
+            <iframe
               src="https://www.jma.go.jp/jp/warn/f_2520400.html"
               width="700px"
               height="1200px"
-              
               style={{
                 transform: "scale(0.5)",
                 transformOrigin: "0 0",
@@ -77,10 +72,10 @@ const Weather = () => {
                 left: "0",
               }}
             />
-            </Box>
+          </Box>
         </WeatherContent>
         <WeatherContent title="気圧配置">
-        <Box
+          <Box
             position="relative"
             width="350px"
             height="450px"
@@ -90,7 +85,6 @@ const Weather = () => {
               src="https://www.jma.go.jp/jp/g3/"
               width="700px"
               height="1200px"
-              
               style={{
                 transform: "scale(0.5)",
                 transformOrigin: "0 0",
@@ -102,9 +96,28 @@ const Weather = () => {
           </Box>
         </WeatherContent>
         <WeatherContent title="風向風速予想">
-          <Link href="http://weather-gpv.info/">
-          GPV
-          </Link>
+          <Flex direction="column" align="center" justify="center" height="100%">
+            <Text fontSize="18px" mb={4}>
+              詳細な風向風速予想を確認するには下のボタンをクリックしてください。
+            </Text>
+            <Link href="http://weather-gpv.info/" passHref>
+              <Button
+                as="a"
+                colorScheme="blue"
+                size="lg"
+                fontWeight="bold"
+                borderRadius="full"
+                px={8}
+                _hover={{
+                  transform: 'translateY(-2px)',
+                  boxShadow: 'lg',
+                }}
+                transition="all 0.2s"
+              >
+                GPVを見る
+              </Button>
+            </Link>
+          </Flex>
         </WeatherContent>
       </Flex>
     </Box>
