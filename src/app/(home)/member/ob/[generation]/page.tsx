@@ -52,6 +52,11 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
       });
   }, [params.generation]);
 
+  // Helper function to join non-empty strings with a separator
+  const joinNonEmpty = (strings: string[], separator: string = " | ") => {
+    return strings.filter(Boolean).join(separator);
+  };
+
   return (
     <Box
       bg="gray.100"
@@ -97,7 +102,7 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
                   <Heading size="md" fontFamily="'Roboto', sans-serif">{member.name}</Heading>
                 </Center>
                 <Text fontSize="sm" align="center" marginTop={1} fontFamily="'Roboto', sans-serif">
-                  {member.sail_number} | {member.position} | {member.faculty}
+                  {joinNonEmpty([member.sail_number, member.position, member.faculty])}
                 </Text>
               </CardHeader>
               <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4}>
@@ -109,9 +114,9 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
                     borderRadius="md"
                   />
                 </AspectRatio>
-                <Text 
-                  fontSize="sm" 
-                  fontFamily="'Roboto', sans-serif" 
+                <Text
+                  fontSize="sm"
+                  fontFamily="'Roboto', sans-serif"
                   lineHeight="1.6"
                   overflow="auto"
                   flex="1"
