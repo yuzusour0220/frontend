@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Flex, Heading, Text, Image } from '@chakra-ui/react';
+import Link from 'next/link';
 
 
 const WeatherContent = ({ title, children }: { title: string; children: React.ReactNode }) => (
@@ -77,23 +78,7 @@ const Weather = () => {
         p="5%"
         pt="15px"
       >
-        <WeatherContent title="風向風速予想">
-          <Box overflow="hidden" height="450px">
-            <iframe
-              src="http://weather-gpv.info/parts/bpm.php?model=msm&element=wa&latsc=1&w=300&h=450&area=kk&lx=270&ly=50"
-              width={300}
-              height="450px"
-              
-              
-            />
-          </Box>
-          <Image
-            src="/photos/wind-speed.png"
-            alt="Wind Speed"
-            height="450px"
-            width="50px"
-          />
-        </WeatherContent>
+        
         
         <WeatherContent title="警報・注意報">
         <Box
@@ -138,6 +123,11 @@ const Weather = () => {
               }}
             />
           </Box>
+        </WeatherContent>
+        <WeatherContent title="風向風速予想">
+          <Link href="http://weather-gpv.info/">
+          GPV
+          </Link>
         </WeatherContent>
       </Flex>
     </Box>
