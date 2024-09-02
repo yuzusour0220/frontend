@@ -20,7 +20,7 @@ const DashboardContent: React.FC = () => {
   return (
     <Flex p={8}>
       <VStack align="stretch" width="200px" spacing={4} mr={8}>
-        <Link href="https://drive.google.com/drive/folders/1EW2qzRGDpyN33ub_lAOm6wyWwt9PTcMA?usp=drive_link">
+        <Link href="https://drive.google.com/drive/folders/1-OEog0fSQo3ydFn9UpNMvY-kUhlnhzqz?fbclid=IwZXh0bgNhZW0CMTEAAR3X_V5QG5rK0u-FTcYn4zebN9Q3ezBbJtCtvm-kF-egtH9S2k1LUplsoAg_aem_tt8hvaggFEp86a4koD50NQ">
           <Button leftIcon={<Icon as={FiVideo} />}>動画共有</Button>
         </Link>
         
