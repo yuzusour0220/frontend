@@ -7,8 +7,8 @@ import { Providers } from "@/components/Proviider";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: "Kyoto University Windsurfing Club",
-  description: "Kyoto University Windsurfing Club",
+  title: "京都大学ウィンドサーフィン部",
+  description: "京都大学ウィンドサーフィン部のウェブサイト",
 };
 
 export default function RootLayout({
