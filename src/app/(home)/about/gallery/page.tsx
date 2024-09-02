@@ -77,7 +77,7 @@ const Gallery: React.FC = () => {
                 zIndex: 1
               }}
               bg="white"
-              height="300px"  // 固定の高さを設定
+              
             >
               <Flex 
                 justifyContent="center" 
