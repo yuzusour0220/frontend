@@ -5,7 +5,6 @@ import {
   CardBody,
   CardHeader,
   Center,
-  Flex,
   GridItem,
   Heading,
   Image,
@@ -35,6 +34,16 @@ interface Member {
   generation: number;
 }
 
+const sortMembers = (members: Member[]): Member[] => {
+  return members.sort((a, b) => {
+    if (a.position.includes("主将")) return -1;
+    if (b.position.includes("主将")) return 1;
+    if (a.position.includes("副将")) return -1;
+    if (b.position.includes("副将")) return 1;
+    return 0;
+  });
+};
+
 const ObGenerationPage = ({ params }: ObGenerationProps) => {
   const [members, setMembers] = useState<Member[]>([]);
 
@@ -45,14 +54,14 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
         const filteredMembers = res.data.filter(
           (member: Member) => member.generation.toString() === params.generation
         );
-        setMembers(filteredMembers);
+        const sortedMembers = sortMembers(filteredMembers);
+        setMembers(sortedMembers);
       })
       .catch((error) => {
         console.error("There was an error fetching OB members:", error);
       });
   }, [params.generation]);
 
-  // Helper function to join non-empty strings with a separator
   const joinNonEmpty = (strings: string[], separator: string = " | ") => {
     return strings.filter(Boolean).join(separator);
   };
@@ -77,7 +86,6 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
           {params.generation}期 OBメンバー
         </Heading>
       </Center>
-
       <SimpleGrid
         columns={[1, 2, 2, 2, 3]}
         spacing={6}
