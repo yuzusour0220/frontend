@@ -158,7 +158,6 @@ const Header = ({ bgcolor = "#0077be" }: HeaderProps) => {
       <Container maxW="container.xl" py={4}>
         <Flex justify="space-between" align="center">
           <Link href="/" textDecoration="none" display="flex" alignItems="center">
-            <Image src="/photos/logosample.png" alt="logo" boxSize="50px" mr={3} />
             <Box>
               <Text 
                 fontSize={["xl", "2xl", "3xl"]} 
