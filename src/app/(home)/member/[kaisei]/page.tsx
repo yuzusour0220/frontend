@@ -275,7 +275,7 @@ const Member = ({ params }: kaiseiProps) => {
                     fontSize="sm" 
                     fontFamily="'Roboto', sans-serif" 
                     lineHeight="1.6"
-                    overflow="auto"
+                    overflow="scroll"
                     flex="1"
                     // スクロール可能な最大高さを設定
                     maxHeight="400px"
