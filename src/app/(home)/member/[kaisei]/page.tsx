@@ -281,6 +281,7 @@ const Member = ({ params }: kaiseiProps) => {
                     // スクロール可能な最大高さを設定
                     maxHeight="200px"
                     p={2}  
+                    pb={5}
                   >
                     {user.introduction}
                   </Text>
