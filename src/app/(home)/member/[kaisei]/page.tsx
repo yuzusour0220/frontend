@@ -277,7 +277,8 @@ const Member = ({ params }: kaiseiProps) => {
                     lineHeight="1.6"
                     overflow="auto"
                     flex="1"
-                    maxHeight="220px" // スクロール可能な最大高さを設定
+                    maxHeight="250px"
+                    paddingBottom={5} // スクロール可能な最大高さを設定
                   >
                     {user.introduction}
                   </Text>
