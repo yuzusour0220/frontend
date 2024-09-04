@@ -251,7 +251,7 @@ const Member = ({ params }: kaiseiProps) => {
                 overflow="hidden"
                 transition="all 0.3s"
                 _hover={{ boxShadow: 'lg' }}
-                height="500px" // 高さを少し調整
+                height="550px" // 高さを少し調整
                 width="100%"
               >
                 <CardHeader bg="#0077be" color="white" py={3}>
@@ -275,10 +275,12 @@ const Member = ({ params }: kaiseiProps) => {
                     fontSize="sm" 
                     fontFamily="'Roboto', sans-serif" 
                     lineHeight="1.6"
-                    overflow="scroll"
+                    overflow="auto"
                     flex="1"
+                    overflowY="auto" 
                     // スクロール可能な最大高さを設定
-                    maxHeight="400px"
+                    maxHeight="200px"
+                    p={2}  
                   >
                     {user.introduction}
                   </Text>
