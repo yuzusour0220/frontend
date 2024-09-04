@@ -129,6 +129,9 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
                   overflow="auto"
                   flex="1"
                   maxHeight="200px"
+                  overflowY="auto" 
+                  p={2}  
+                  pb={5}
                 >
                   {member.introduction}
                 </Text>
