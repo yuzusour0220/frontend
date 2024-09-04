@@ -1,91 +1,4 @@
-// "use client";
-// import React from "react";
-// import {
-//   Box,
-//   Flex,
-//   Link,
-//   Image,
-//   IconButton,
-//   Drawer,
-//   DrawerOverlay,
-//   DrawerContent,
-//   DrawerCloseButton,
-//   DrawerBody,
-//   VStack,
-//   useDisclosure,
-//   useBreakpointValue,
-//   Container,
-//   Text
-// } from "@chakra-ui/react";
-// import { HamburgerIcon } from '@chakra-ui/icons';
-// import HeaderItem, { MenuItems } from './HeaderItem';
 
-// const NAV_ITEMS: Array<keyof MenuItems> = ["About", "Member", "Blog", "Race", "Others"];
-
-// type HeaderProps = {
-//   bgcolor: string;
-// };
-// const Header = ({bgcolor}:HeaderProps) => {
-
-//   const { isOpen, onOpen, onClose } = useDisclosure();
-//   const isMobile = useBreakpointValue({ base: true, md: false });
-
-//   return (
-//     <Box 
-//       as="header" 
-//       position="sticky" 
-//       top={0} 
-//       zIndex={1000} 
-//       bg="#315098"
-//       boxShadow="0 2px 4px rgba(0,0,0,.1)"
-//     >
-//       <Container maxW="container.xl" py={4}>
-//         <Flex justify="space-between" align="center">
-//           <Link href="/" textDecoration="none" display="flex" alignItems="center">
-//             <Image src="/photos/logosample.png" alt="logo" boxSize="40px" mr={3} />
-//             <Text fontSize={["lg", "xl", "2xl"]} fontWeight="bold" color="white" lineHeight="1">
-//               Kyoto Univ Windsurfing Club
-//             </Text>
-//           </Link>
-          
-//           {isMobile ? (
-//             <IconButton
-//               aria-label="Open menu"
-//               icon={<HamburgerIcon />}
-//               onClick={onOpen}
-//               variant="outline"
-//               colorScheme="whiteAlpha"
-//             />
-//           ) : (
-//             <Flex as="nav">
-//               {NAV_ITEMS.map((item) => (
-//                 <Box key={item} mx={4}>
-//                   <HeaderItem item={item} />
-//                 </Box>
-//               ))}
-//             </Flex>
-//           )}
-//         </Flex>
-//       </Container>
-
-//       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="xs">
-//         <DrawerOverlay />
-//         <DrawerContent bg="#315098">
-//           <DrawerCloseButton color="white" />
-//           <DrawerBody>
-//             <VStack spacing={6} align="stretch" mt={12}>
-//               {NAV_ITEMS.map((item) => (
-//                 <HeaderItem key={item} item={item} isMobile={true} onClose={onClose} />
-//               ))}
-//             </VStack>
-//           </DrawerBody>
-//         </DrawerContent>
-//       </Drawer>
-//     </Box>
-//   );
-// };
-
-// export default Header;
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -93,7 +6,6 @@ import {
   Box,
   Flex,
   Link,
-  Image,
   IconButton,
   Drawer,
   DrawerOverlay,
