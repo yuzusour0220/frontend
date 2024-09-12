@@ -316,12 +316,27 @@ const ScheduleCard: React.FC<{
             {schedule.start === schedule.end
               ? new Date(schedule.start).toLocaleDateString()
               : `${new Date(schedule.start).toLocaleDateString()} - ${new Date(
-                  schedule.end
-                ).toLocaleDateString()}`}
+                schedule.end
+              ).toLocaleDateString()}`}
             {schedule.mitei && schedule.files.length === 0 && (
               <Text as="span" ml={2} >
                 (未定)
               </Text>
+            )}
+          </Text>
+          <Text fontSize="md" color="black">
+            {schedule.mitei && schedule.files.length === 0 ? (
+              <Text as="span">未定</Text>
+            ) : (
+              <>
+                日程:{" "}
+                {schedule.start === schedule.end
+                  ? new Date(schedule.start).toLocaleDateString()
+                  : `${new Date(schedule.start).toLocaleDateString()} - ${new Date(
+                    schedule.end
+                  ).toLocaleDateString()}`}
+                
+              </>
             )}
           </Text>
         </Center>
@@ -370,10 +385,10 @@ const ScheduleModal: React.FC<{
               {schedule.start === schedule.end
                 ? new Date(schedule.start).toLocaleDateString()
                 : `${new Date(
-                    schedule.start
-                  ).toLocaleDateString()} - ${new Date(
-                    schedule.end
-                  ).toLocaleDateString()}`}
+                  schedule.start
+                ).toLocaleDateString()} - ${new Date(
+                  schedule.end
+                ).toLocaleDateString()}`}
             </Text>
           </Box>
 
@@ -480,7 +495,7 @@ const Result: React.FC<{ params: { year: string } }> = ({ params }) => {
           paddingBottom={2}
           marginBottom={6}
         >
-          {params.year} Race 
+          {params.year} Race
         </Heading>
       </Center>
       <VStack
