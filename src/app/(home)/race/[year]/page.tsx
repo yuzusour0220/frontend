@@ -311,7 +311,7 @@ const ScheduleCard: React.FC<{
       </GridItem>
       <GridItem>
         <Center>
-          <Text fontSize="md" color="black">
+          {/* <Text fontSize="md" color="black">
             日程:{" "}
             {schedule.start === schedule.end
               ? new Date(schedule.start).toLocaleDateString()
@@ -323,7 +323,7 @@ const ScheduleCard: React.FC<{
                 (未定)
               </Text>
             )}
-          </Text>
+          </Text> */}
           <Text fontSize="md" color="black">
             {schedule.mitei && schedule.files.length === 0 ? (
               <Text as="span">未定</Text>
