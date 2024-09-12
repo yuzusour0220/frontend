@@ -326,7 +326,7 @@ const ScheduleCard: React.FC<{
           </Text> */}
           <Text fontSize="md" color="black">
             {schedule.mitei && schedule.files.length === 0 ? (
-              <Text as="span">未定</Text>
+              <Text as="span">日程: 未定</Text>
             ) : (
               <>
                 日程:{" "}
