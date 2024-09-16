@@ -53,6 +53,8 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
       .then((res) => {
         const filteredMembers = res.data.filter(
           (member: Member) => member.generation.toString() === params.generation
+          &&
+          member.grade === 'OB'
         );
         const sortedMembers = sortMembers(filteredMembers);
         setMembers(sortedMembers);
