@@ -104,8 +104,9 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
               overflow="hidden"
               transition="all 0.3s"
               _hover={{ boxShadow: 'lg' }}
-              height="550px"
               width="100%"
+              display="flex"
+              flexDirection="column"
             >
               <CardHeader bg="#0077be" color="white" py={3}>
                 <Center>
@@ -115,7 +116,7 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
                   {joinNonEmpty([member.sail_number, member.position, member.faculty])}
                 </Text>
               </CardHeader>
-              <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4}>
+              <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4} flex="1">
                 <AspectRatio ratio={4 / 3} width="100%" marginBottom={4}>
                   <Image
                     src={member.photo}
