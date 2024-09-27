@@ -122,8 +122,10 @@ const Member = ({ params }: kaiseiProps) => {
                 overflow="hidden"
                 transition="all 0.3s"
                 _hover={{ boxShadow: 'lg' }}
-                height="550px" // 高さを少し調整
+                // height="550px" // 高さを少し調整
                 width="100%"
+                display="flex"
+                flexDirection="column"
               >
                 <CardHeader bg="#0077be" color="white" py={3}>
                   <Center>
@@ -133,8 +135,8 @@ const Member = ({ params }: kaiseiProps) => {
                     {user.sail_number} | {user.position} | {user.faculty}
                   </Text>
                 </CardHeader>
-                <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4}>
-                  <AspectRatio ratio={4 / 3} width="100%" marginBottom={4}>
+                <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4} flex="1">
+                  <AspectRatio ratio={4 / 3} width="100%" marginBottom={4}  maxHeight="200px">
                     <Image
                       src={user.photo}
                       alt={`${user.name}の写真`}
@@ -149,6 +151,7 @@ const Member = ({ params }: kaiseiProps) => {
                     overflow="auto"
                     flex="1"
                     overflowY="auto" 
+                    
                     // スクロール可能な最大高さを設定
                     maxHeight="200px"
                     p={2}  

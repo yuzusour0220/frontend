@@ -5,7 +5,6 @@ import {
   CardBody,
   CardHeader,
   Center,
-  Flex,
   GridItem,
   Heading,
   Image,
@@ -53,9 +52,9 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
       .get(`${process.env.NEXT_PUBLIC_API_URL}/members/?grade=ob`)
       .then((res) => {
         const filteredMembers = res.data.filter(
-          (member: Member) =>
-            member.generation.toString() === params.generation &&
-            member.grade === "OB"
+          (member: Member) => member.generation.toString() === params.generation
+          &&
+          member.grade === 'OB'
         );
         const sortedMembers = sortMembers(filteredMembers);
         setMembers(sortedMembers);
@@ -65,8 +64,16 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
       });
   }, [params.generation]);
 
+  const joinNonEmpty = (strings: string[], separator: string = " | ") => {
+    return strings.filter(Boolean).join(separator);
+  };
+
   return (
-    <Box minHeight="100vh" py={10}>
+    <Box
+      bg="gray.100"
+      minHeight="100vh"
+      py={10}
+    >
       <Center margin={10}>
         <Heading
           color="#0077be"
@@ -81,9 +88,8 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
           {params.generation}期 OBメンバー
         </Heading>
       </Center>
-
       <SimpleGrid
-        columns={{ base: 1, md: 2, lg: 3 }}
+        columns={[1, 2, 2, 2, 3]}
         spacing={6}
         width="95%"
         margin="auto"
@@ -97,31 +103,19 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
               borderRadius="md"
               overflow="hidden"
               transition="all 0.3s"
-              _hover={{ boxShadow: "lg" }}
+              _hover={{ boxShadow: 'lg' }}
               height="550px"
               width="100%"
             >
               <CardHeader bg="#0077be" color="white" py={3}>
                 <Center>
-                  <Heading size="md" fontFamily="'Roboto', sans-serif">
-                    {member.name}
-                  </Heading>
+                  <Heading size="md" fontFamily="'Roboto', sans-serif">{member.name}</Heading>
                 </Center>
-                <Text
-                  fontSize="sm"
-                  align="center"
-                  marginTop={1}
-                  fontFamily="'Roboto', sans-serif"
-                >
-                  {member.sail_number} | {member.position} | {member.faculty}
+                <Text fontSize="sm" align="center" marginTop={1} fontFamily="'Roboto', sans-serif">
+                  {joinNonEmpty([member.sail_number, member.position, member.faculty])}
                 </Text>
               </CardHeader>
-              <CardBody
-                display="flex"
-                flexDirection="column"
-                justifyContent="space-between"
-                p={4}
-              >
+              <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4}>
                 <AspectRatio ratio={4 / 3} width="100%" marginBottom={4}>
                   <Image
                     src={member.photo}
@@ -137,8 +131,8 @@ const ObGenerationPage = ({ params }: ObGenerationProps) => {
                   overflow="auto"
                   flex="1"
                   maxHeight="200px"
-                  overflowY="auto"
-                  p={2}
+                  overflowY="auto" 
+                  p={2}  
                   pb={5}
                 >
                   {member.introduction}
