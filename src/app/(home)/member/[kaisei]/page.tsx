@@ -136,7 +136,7 @@ const Member = ({ params }: kaiseiProps) => {
                   </Text>
                 </CardHeader>
                 <CardBody display="flex" flexDirection="column" justifyContent="space-between" p={4} flex="1">
-                  <AspectRatio ratio={4 / 3} width="100%" marginBottom={4}  maxHeight="200px">
+                  <AspectRatio ratio={4 / 3} width="100%" marginBottom={4} >
                     <Image
                       src={user.photo}
                       alt={`${user.name}の写真`}
