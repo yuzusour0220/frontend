@@ -107,7 +107,7 @@ const Member = ({ params }: kaiseiProps) => {
         </Center>
   
         <SimpleGrid
-          columns={{base: 1, md: 2, lg: 3}}
+          columns={[1, 2, 2, 2, 3]}
           spacing={6}
           width="95%"
           margin="auto"
